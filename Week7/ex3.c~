@@ -1,0 +1,22 @@
+#include<stdio.h>
+
+int main()
+{
+	int d, n, g;
+	for(d = 1; d <=20 ; d++){
+		for(n=1; n<=33 ; n ++){
+		  	if ((100-d-n)%3==0 && ((d*5+n*3+(100-d-n)/3)==100)) {
+				g =100-d-n;
+				printf("So trau dung la: %-3d___So bo co da an: %-3d\n", d, d*5);
+	     		printf("So trau nam  la: %-3d___So bo co da an: %-3d\n", n, n*3);
+				printf("So trau gia  la: %-3d___So bo co da an: %-3d\n\n", g, g/3);
+						
+				}
+					
+			}
+			
+		}
+	
+
+	return 0;
+}

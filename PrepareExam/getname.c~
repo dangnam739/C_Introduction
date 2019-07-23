@@ -1,0 +1,16 @@
+#include<stdio.h>
+#include<string.h>
+#define MAX 100
+
+int main(){
+
+	char name[MAX];
+		printf("\nNhap ho ten cua nhung nguoi choi \n");
+			
+				do{
+					printf("Nguoi choi %d: ", i+1);
+					gets(name);
+					if(strchr(name, ' ') < 0) printf("Ten nguoi choi phai co dau cach !\nVui long nhap lai !\n");
+				}while(strchr(name, ' ') < 0);
+				return 0;
+}

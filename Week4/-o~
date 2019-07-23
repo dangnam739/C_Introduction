@@ -1,0 +1,4 @@
+ex2.c:2:10: fatal error: string: No such file or directory
+ #include <string>
+          ^~~~~~~~
+compilation terminated.

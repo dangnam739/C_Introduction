@@ -1,0 +1,12 @@
+#include<stdio.h>
+#include<string.h>
+
+typedef struct{
+	char name[30];
+	char description[50];
+	float rating;
+	char address[100];
+}Restaurant;
+
+
+int main(){

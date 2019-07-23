@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<string.h>
+#define MAX 200
+
+void mahoa(char s[], int offset);
+void giaima(char s[], int offset);
+
+int main()
+{
+	char s[MAX+1];
+	int offset;
+	puts("Nhap doan van ban muon ma hoa:");
+	gets(s);
+	puts("Nhap buoc dich chuyen:");
+	scanf("%d", offset);
+
+	mahoa(s,offset);
+	puts("Doan van ban sau khi ma hoa la:");
+	puts(s);
+	
+
+	return;
+}
+
+void mahoa(char s[], int offset){
+	for(int i=0; i<strlen(s); i++){
+		if(isalpha(s[i]))
+		(int)s[i]+=offset;
+	}	
+}

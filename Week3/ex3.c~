@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int maing ()
+{
+  printf("______________________________________________\n\n");
+  printf("|\t\t%-40s|\n", "TRUONG DAI HOC BACH KHOA HA NOI");
+  printf("|\t\t%26s%14c|\n", "THE SINH VIEN", ' ');
+
+
+  return 0;
+}
+  

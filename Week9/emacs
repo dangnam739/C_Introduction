@@ -1,0 +1,74 @@
+;; C enviroment
+(defun linux-c-mode ()
+"C mode with adjusted defaults for use with the Linux kernel."
+(interactive)
+(c-mode)
+(c-set-style "K&R"))
+
+;; indent the braces
+(setq c-default-style "linux"
+      c-basic-offset 4)
+
+(setq display-time-day-and-date t)
+(setq inhibit-startup-message t)
+(set-mouse-color"goldenrod")
+
+;; define TAB
+(defun my-insert-tab-char ()
+  "Insert a tab char. (ASCII 4, \t)"
+  (interactive)
+  (insert "\t"))
+(global-set-key (kbd "TAB") 'my-insert-tab-char)
+(setq-default tab-width 4)
+
+;; make typing delete/overwrites selected text
+(delete-selection-mode 1)
+
+;; cursor color
+(set-cursor-color"red")
+
+;; turn on highlighting current line
+(global-hl-line-mode 1)
+
+;; turn on bracket match highlight
+(show-paren-mode 1)
+
+;; always show line numbers
+(global-linum-mode 1)
+
+;; show cursor position within line
+(column-number-mode 1)
+
+;; auto insert closing bracket
+(electric-pair-mode 1)
+(setq electric-pair-pairs '(
+                            (?\" . ?\")
+                            (?\{ . ?\})
+                            ) )
+
+;; backup in one place. flat, no tree structure
+;;(setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
+
+;; themes color
+;;(load-theme 'tsdh-dark)
+
+;; type y/n instead of yes/no
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
+ '(custom-enabled-themes (quote (deeper-blue))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+

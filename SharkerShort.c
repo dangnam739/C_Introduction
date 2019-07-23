@@ -1,0 +1,43 @@
+
+#include <stdio.h>
+
+
+void sharkerShort (int a[], int n)
+{ int r,l,m;
+  l=0; r=m=n-1;
+  while(l<r){
+    for (int i=r; i>l;i--){
+      if (a[i]<a[i-1]){
+	int tg=a[i];
+	a[i]=a[i-1];
+	a[i-1]=tg;
+	m=i;
+      }
+    }
+    for (int j=l; j<r; j++){
+	if(a[j]>a[j+1]) {
+	int tg=a[j];
+	a[j]=a[j+1];
+	a[j+1]=tg;
+        m=j;
+	}
+    }
+    r=m;
+  }
+}
+
+void xuat(int a[], int n){
+  for(int i=0; i<n; i++){
+    printf ("%5d", a[i]);
+  }
+}
+
+int main () {
+  int a[10]={9,7,6,2,1,8,4,3,5,0};
+  sharkerShort(a,10);
+  xuat(a,10);
+  return 0;
+}
+     
+
+     

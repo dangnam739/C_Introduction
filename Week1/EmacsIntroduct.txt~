@@ -1,0 +1,49 @@
+Author: Kieu Dang Nam
+TTCNTT Viet Nhat B-K62
+
+EMACS
+
+1.Cac thao tac vao ra
+-Chay chuong trinh: trong Terminal go lenh: emacs
+- emacs & hoac emacs -nw : Quay lai cua so dong lenh
+- emacs fliename: mo file
+- Cac lenh Cotrol: Ctrl-x: C-x
+- Lenh [Escape]  : Alt-x : M-x
+- C-x C-c: Thoat Emacs
+- C-x C-f: Tim kiem va mo file
+- C-x C-s: Luu file
+- C-g    : Go lai cau lenh go sai
+
+2.Cac lenh di chuyen trong van ban
+- M-<: di chuyen len dau file
+- M->: di chuyen xuong cuoi file
+- C-v: sang trang tiep theo
+- M-v: ve trang truoc
+- C-a: dua con tro ve dau dong
+- C-e: dua con tro xuong cuoi dong
+- C-p: len dong truoc
+- C-n: xuong dong duoi
+- M-f: di chuyen den tu phia truoc
+- M-b: di chuyen den tu phia sau
+- M-x goto-line: di chuyen den dong n bat ky
+
+3.Cac lenh Copy, Paste, Delete
+- Di chuyen con tro den vi tri lam vi tri danh dau, sau do su dung C-spacebar va di chuyen len xuong de co duoc doan can copy/delete
+  + Delete: C-w
+  + Copy  : M-w
+- De Paste, sau khi Copy ta di chuyen con tro den vi tri dan va thuc hien cau lenh: C-y
+
+4.Cac cau lenh ve cua so
+- C-x 1: 1 cua so
+- C-x 2: chia thanh 2 cua so theo chieu ngang
+- C-x 3: chia thanh 2 cua so theo chieu doc
+- c-x 0: chuyen con nhay xuong cua so cuoi
+
+5.Cac lenh ve tim kiem va thay the
+- C-s: tim kiem tu tren xuong
+- C-r: tim kiem tu duoi len
+- M-%: thay the mot tu nao do
+
+6.Mot so cau lenh khac
+- C-x u: Undo
+- C-x k: Kill buffer

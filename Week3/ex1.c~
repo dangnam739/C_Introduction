@@ -1,0 +1,7 @@
+#include <stdio.h>
+
+int main()
+{
+  printf("\tSTATISTIC OF WAYNE ROONEY IN SEASON 2009-2010");
+  printf("=========================================================");
+  printf("\nAttack

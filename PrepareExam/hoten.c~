@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.c>
+#define MAX 100
+
+int main(){
+	char hoten[MAX], ten[30], tendem[30], ho[30];
+	int i=0, j=0, posL, posR;
+
+	printf("Nhap ho ten cua ban: ");
+	gets(hoten);
+
+	//tach ho
+	for(i=0; i<strlen(hoten); i++)
+		if(isblank(hoten[i]))
+			break;
+	posL=i;
+	for(i=0; i<posL; i++, j++)
+		ho[j] = hoten[i];
+	ho[j+1]='\0';
+	//tach ten
+	for(i=strlen(hoten)-1; i>=0; i--)
+		if(isblank(hoten[i]))
+			break;
+	posR=i;
+	j=0;
+	for(i=posR+1; i<strlen(hoten); i++, j++)
+		ten[j] = hoten[i];
+	ten[j+1]='\0';
+	//tach ten dem
+	j=0;
+	for(i=posL+1; i<posR; i++)
+		tendem[j]=hoten[i];
+	tendem[j+1]='\0';
+
+	printf("\nHo: %s\nTen dem: %s\nTen: %s", ho, tendem, ten);
+	return 0;
+}

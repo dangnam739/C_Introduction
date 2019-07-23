@@ -1,0 +1,152 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+#define Total 4
+#define MAX 100
+
+typedef struct{
+	char name[25];
+	int old;
+	int score[5];
+	int sumScore;
+} Game;
+
+int menu();
+void getStr(char s[]);
+int findBlank(char s[]);
+void getPlayer(Game *p);
+void play(Game p, char s[]);
+
+int main(){
+	char s[MAX];
+	Game person[Total];
+	int i, j, ch, m;
+
+	do{
+		ch = menu();
+
+		switch(ch){
+		case 1:
+			printf("\n\t1. Khoi dong tro choi\n");
+			getStr(s);
+			do{
+			printf("Nhap so luong nguoi choi(>0): ");
+			scanf("%d%*c", &m);
+			if(m<0 || m>4) printf("So luong nguoi choi toi da la 4 !\nVui long nhap lai !\n");
+			printf("\n");
+			}while(m<0 || m>4);
+			
+			for(i=0; i<m; i++){
+				printf("Nguoi choi %d\n", i+1);
+				getPlayer(&person[i]);
+			}
+
+			printf("%-20s %-5s\n", "Ho va ten", "Tuoi");
+			for(i=0; i<m; i++)
+				printf("%-20s %-5d\n", person[i].name, person[i].old);
+			
+			printf("==========================================\n");
+			break;
+	
+		case 2:
+	   		printf("\n\t2. Choi doan doan ki tu\n");
+			for(i=0; i<m; i++){
+				printf("Nguoi choi %d\n", i+1);
+				play(person[i], s);
+			}
+					
+			printf("==========================================\n");
+			break;
+
+			
+		}
+		
+	}while(ch != 5);
+
+	
+}
+
+int menu(){
+	int ch;
+	printf("\tTRO CHOI LAT O CHU\n");
+	printf("1. Khoi dong tro choi\n");
+	printf("2. Choi doan doan ki tu\n");
+	printf("3. Tong hop ket qua\n");
+	printf("4. Thoat chuong trinh\n");
+	printf("==========================================\n");
+	do{
+	printf("\tNhap lua chon cua ban la: ");
+	scanf("%d%*c", &ch);
+	if( ch <=0 || ch >4) printf("Ban da nhap sai !\n Lua chon la mot so tu nhien tu 1 den 4 !\n Vui long nhap lai !\n");
+	}while(ch<=0 || ch>4);
+	printf("==========================================\n");
+
+	return ch;
+}
+
+int findBlank(char s[]){
+	for(int i=0; i<strlen(s); i++)
+		if(isblank(s[i])){
+			return 1;
+			break;
+		}
+	return 0;
+}
+
+void getStr(char s[]){
+	do{
+	printf("Nhap xau can doan: ");
+	gets(s);
+	if(findBlank(s)) printf("Nhap sai !\nXau nhap khong co dau cach !\n");
+	if(strlen(s)<20 || strlen(s)>40) printf("Nhap sai !\nXau nhap co do dai trong doan [20,40] !\n");
+	printf("\n");
+	}while(findBlank(s) || strlen(s)<20 || strlen(s)>40);
+}
+
+void getPlayer(Game *p){
+	printf("\tNhap ho ten nguoi choi: ");
+	gets(p->name);
+
+	printf("\tNhap tuoi cua nguoi choi(>0): ");
+	scanf("%d%*c", &p->old);
+	printf("\n");
+}
+
+void play(Game p, char s[]){
+	char ss[MAX],str[MAX], doan[MAX];
+	int i;
+	for(i=0;i<strlen(s); i++){
+		ss[i]='*';
+		str[i]=tolower(s[i]);
+	}
+	ss[i+1]='\0';
+	str[i+1]='\0';
+	char kt;
+	p.sumScore=0;
+	
+	printf("Xau can doan: %s\n", ss);
+
+	for(i=0; i<4; i++){
+		printf("Luot %d\n", i+1);
+		printf("\tKi tu ban doan la: ");
+		scanf("%c%*c", &kt);
+		kt=tolower(kt);
+		p.score[i]=0;
+		for(int j=0; j<strlen(s); j++)
+			if(str[j] == kt){
+				ss[j]=s[j];
+				p.score[i]++;
+				}
+
+		p.sumScore+=p.score[i];
+		printf("==> %s\n", ss);
+	}
+	printf("Xau ma ban doan la: ");
+	gets(doan);
+	if(strcmp(s,doan) == 0){
+		printf("Chuc mung ban ! Ban da doan dung !\n\n");
+		p.sumScore+=20;
+	}
+	else printf("Rat tiec ! Ban da doan sai !\n\n");
+}
+

@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<string.h>
+typedef struct{
+	char id[8];
+	char name[31];
+	date birthDate;
+	float grade;
+	char classment;
+} student;
+
+int main(){
+	student s;
+	printf("\tID: ");
+	gets(s.id);
+	
+	printf("\tName: ");
+	gets(s.name);
+	
+	printf("\tBirthDate:\n");
+	gets(s.birthDate);
+	
+	printf("\tGrade: ");
+	scanf("%f%*c", &s.grade);
+	printf("%s %s %s %f\n", s.id, s.name, s.birthDate, s.grade);
+	return 0;
+}

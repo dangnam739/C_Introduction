@@ -1,0 +1,11 @@
+#include<stdio.h>
+#include<ctype.h>
+
+int main(){
+	char c=' ';
+	if(isblank(c)) printf("%c is blank\n", c);
+	else  printf("%c is not blank\n", c);
+
+
+	return 0;
+}

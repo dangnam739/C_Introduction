@@ -1,0 +1,100 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+#define MAX 100
+
+void trimRight(char str[]);
+void trimLeft(char str[]);
+//void trimMiddle(char str[]);
+
+int main()
+{
+	char str[MAX+1];
+	puts("Nhap xau: ");
+	gets(str);
+	
+	trimRight(str);
+	trimLeft(str);
+//	trimMiddle(str);
+
+	printf("Xau sau khi xoa bo cac dau cach lien nhau la: %s\n", str);
+	return 0;
+}
+
+void trimLeft(char str[])
+{
+	char s[MAX+1];
+	strcpy(s,str);
+	int i=0, pos;
+
+	for(i=0; i<strlen(str); i++){
+		if(! isblank(str[i]))
+			break;
+	}
+
+	pos=i;
+	i=0;
+	while(s[pos] != '\0'){
+		str[i]=s[pos];
+		pos++;
+		i++;
+	}
+	str[i]='\0';
+}
+
+void trimRight(char str[])
+{
+	char s[MAX+1];
+	int i=0, pos;
+
+	strcpy(s,str);
+	for(i=strlen(str)-2; i>=0; i--){
+		if(! isblank(str[i]))
+			break;
+	}
+	pos=i;
+	str[pos+1]='.';
+	str[pos+2]='\0';
+}
+
+void trimMiddle(char str[]){
+	char s1[MAX+1], s2[MAX+1]="";
+	int i,j, posL, posR, mark;
+	for(i=0; i<strlen(str); i++)
+		if(! isblank(str[i])) break;
+	posL=i;
+
+	for(i=strlen(str)-1; i>=0; i--)
+		if(! isblank(str[i])) break;
+	posR=i;
+
+	i=posL;
+	strcpy(s1, str);
+	strncat(s2, s1, posL);
+	mark2=posL;
+	mark1=0;
+	
+	while(strlen(s1) != strlen(str)-posR-1){
+		
+		for(i=mark2; i<posR;i++)
+			if(isblank(s1[i])) break;
+		mark1=i;
+
+		strncat(s2,s1, mark1-mark2+1);
+		
+		for(i=mark1; i<posR; i++)
+			if(! isblank(s1[i])) break;
+		mark2=i;
+
+		j=0;
+	   	while(s1[i] != '\0'){
+			s1[j]=s1[i];
+			j++;
+			i++;
+		}
+		s1[j]='\0';
+	}
+	
+
+}
+

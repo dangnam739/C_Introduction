@@ -1,0 +1,7 @@
+#include <stdio.h>
+
+int main()
+{
+  printf("%03d", 15);
+  return 0;
+}
